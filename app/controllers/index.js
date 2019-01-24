@@ -60,7 +60,7 @@ FSCalendarDelegate.addMethod({
     arguments : ['FSCalendar', 'CGRect', 'BOOL'],
     callback : function(calendar, bounds, animated) {
         if (this.boundingRectWillChange) {
-            this.boundingRectWillChange(calendar, date);
+            this.boundingRectWillChange(calendar, bounds, animated);
         }
     }
 });
@@ -142,10 +142,10 @@ delegate.boundingRectWillChange = function(calendar, bounds, animated) {
 
 
 function setWeek(){
-    calendar.setScope(FSCalendar.FSCalendarScopeWeek,true);
+    calendar.setScopeAnimated(FSCalendar.FSCalendarScopeWeek,true);
 }
 function setMonth(){
-    calendar.setScope(FSCalendar.FSCalendarScopeMonth,true);
+    calendar.setScopeAnimated(FSCalendar.FSCalendarScopeMonth,true);
 }
 
 calendar.delegate = delegate;
